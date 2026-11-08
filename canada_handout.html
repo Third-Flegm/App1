@@ -6,16 +6,17 @@
     <title>Canada: Geography, Regions & Culture — Study Handout</title>
     <style>
         :root {
-            --red: #c51b29;
-            --ink: #172b3a;
-            --body: #344452;
-            --muted: #64727c;
-            --paper: #fffefa;
-            --canvas: #edf2ef;
-            --line: #d7dfdc;
-            --blue: #287c9e;
-            --green: #39836a;
-            --gold: #c58a32;
+            color-scheme: dark;
+            --red: #e85a64;
+            --ink: #f0f3ef;
+            --body: #c5d0ca;
+            --muted: #9aa9a2;
+            --paper: #182326;
+            --canvas: #0c1316;
+            --line: #354448;
+            --blue: #68b7d1;
+            --green: #79b99a;
+            --gold: #e2b96e;
         }
 
         * {
@@ -27,7 +28,7 @@
         body {
             font-family: "Trebuchet MS", "Lucida Sans Unicode", sans-serif;
             color: var(--body);
-            background: radial-gradient(ellipse at 12% 4%, #fff 0, transparent 30rem), var(--canvas);
+            background: radial-gradient(ellipse at 8% 0%, rgba(52, 94, 83, 0.26), transparent 34rem), radial-gradient(ellipse at 95% 35%, rgba(142, 49, 56, 0.12), transparent 30rem), var(--canvas);
             line-height: 1.6;
             padding: 2.5rem 1.25rem;
         }
@@ -38,7 +39,7 @@
             background: var(--paper);
             padding: 0 3.25rem 2.5rem;
             border-radius: 6px;
-            box-shadow: 0 18px 55px rgba(23, 43, 58, 0.1);
+            box-shadow: 0 22px 65px rgba(0, 0, 0, 0.35);
         }
 
         header {
@@ -134,7 +135,7 @@
         }
 
         .info-card {
-            background: #f3f6f3;
+            background: #202d30;
             border-left: 3px solid var(--blue);
             padding: 1rem 1.15rem;
             border-radius: 0 3px 3px 0;
@@ -143,9 +144,9 @@
 
         .info-card.cities { border-left-color: var(--blue); }
         .info-card.rivers { border-left-color: var(--green); }
-        .info-card.seas { border-left-color: #397bb2; }
-        .info-card.nature { border-left-color: #718d43; }
-        .info-card.languages { border-left-color: #bd7934; }
+        .info-card.seas { border-left-color: #75aee0; }
+        .info-card.nature { border-left-color: #a4b86c; }
+        .info-card.languages { border-left-color: var(--gold); }
 
         .info-card h3 {
             font-size: 1.1rem;
@@ -163,7 +164,8 @@
             overflow: hidden;
             border: 1px solid var(--line);
             border-radius: 4px;
-            background: #f5f7f5;
+            background: #fff;
+            padding: 0.7rem;
         }
 
         .map-container img {
@@ -177,7 +179,7 @@
             overflow: hidden;
             border: 1px solid var(--line);
             border-radius: 4px;
-            background: #f3f6f3;
+            background: #202d30;
         }
 
         .image-panel img {
@@ -204,7 +206,7 @@
             border-top: 3px solid var(--green);
             padding: 1.15rem;
             border-radius: 3px;
-            background: #fbfcfa;
+            background: #1b292c;
         }
 
         .region-title {
@@ -239,11 +241,15 @@
         }
 
         @media print {
-            body { background: #fff; padding: 0; }
-            .container { box-shadow: none; padding: 0; max-width: 100%; }
+            :root { color-scheme: light; --ink: #172b3a; --body: #344452; --muted: #64727c; --paper: #fff; --canvas: #fff; --line: #d7dfdc; }
+            body { background: #fff; color: #344452; padding: 0; }
+            .container { background: #fff; box-shadow: none; padding: 0; max-width: 100%; }
             header { margin: 0 0 2rem; min-height: 220px; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
             .download-badge { display: none; }
-            .info-card { background: #fff !important; border-left-width: 4px !important; break-inside: avoid; }
+            .info-card { background: #fff !important; color: #344452; border-left-width: 4px !important; break-inside: avoid; }
+            .region-block, .image-panel { background: #fff !important; color: #344452; break-inside: avoid; }
+            .info-card h3, .region-title, .sub-bullet, .info-card p { color: #344452; }
+            .map-container { background: #fff; }
             .region-block, .map-container, .image-panel { break-inside: avoid; }
             h2 { margin-top: 2rem; page-break-after: avoid; }
         }
