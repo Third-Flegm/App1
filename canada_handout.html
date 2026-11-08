@@ -189,6 +189,11 @@
             object-fit: cover;
         }
 
+        .image-panel .city-map-image {
+            object-fit: contain;
+            background: #fff;
+        }
+
         .image-panel figcaption {
             padding: 0.65rem 0.9rem;
             color: var(--muted);
@@ -240,18 +245,37 @@
             color: var(--muted);
         }
 
+        @page {
+            size: letter;
+            margin: 0.55in 0.6in;
+        }
+
         @media print {
             :root { color-scheme: light; --ink: #172b3a; --body: #344452; --muted: #64727c; --paper: #fff; --canvas: #fff; --line: #d7dfdc; }
-            body { background: #fff; color: #344452; padding: 0; }
-            .container { background: #fff; box-shadow: none; padding: 0; max-width: 100%; }
-            header { margin: 0 0 2rem; min-height: 220px; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            body { background: #fff; color: #344452; padding: 0; font-size: 9pt; line-height: 1.38; }
+            .container { width: 100%; max-width: none; background: #fff; box-shadow: none; padding: 0; }
+            header { min-height: 1.2in; margin: 0 0 0.25in; padding: 0.2in 0.25in; align-items: flex-end; background: #172b3a; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            .header-title h1 { font-size: 25pt; }
+            .header-title p { margin-top: 0.06in; font-size: 9pt; }
             .download-badge { display: none; }
-            .info-card { background: #fff !important; color: #344452; border-left-width: 4px !important; break-inside: avoid; }
-            .region-block, .image-panel { background: #fff !important; color: #344452; break-inside: avoid; }
-            .info-card h3, .region-title, .sub-bullet, .info-card p { color: #344452; }
-            .map-container { background: #fff; }
-            .region-block, .map-container, .image-panel { break-inside: avoid; }
-            h2 { margin-top: 2rem; page-break-after: avoid; }
+            section { margin-bottom: 0.28in; }
+            h2 { margin: 0 0 0.12in; padding-bottom: 0.07in; font-size: 16pt; break-after: avoid; }
+            .grid-two-col { gap: 0.03in 0.12in; }
+            .info-card { margin-bottom: 0.03in; padding: 0.07in 0.1in; background: #f3f6f4 !important; color: #344452; border-left-width: 3px !important; break-inside: avoid; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            .info-card h3 { margin-bottom: 0.01in; font-size: 9.5pt; color: #172b3a; }
+            .info-card p, .sub-bullet { font-size: 8pt; color: #344452; }
+            .region-block { padding: 0.09in; background: #f7f8f6 !important; color: #344452; break-inside: avoid; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            .regions-list { gap: 0.08in; }
+            .region-title { margin-bottom: 0.03in; font-size: 9.5pt; color: #172b3a; }
+            .sub-bullet { margin-left: 0.08in; line-height: 1.3; }
+            .map-container, .image-panel { margin: 0.08in 0 0.12in; background: #fff !important; break-inside: avoid; }
+            .map-container { padding: 0.06in; }
+            .map-container img { width: auto; height: 3.05in; max-width: 100%; margin: 0 auto; object-fit: contain; }
+            .image-panel img { max-height: 2.05in; }
+            .image-panel .city-map-image { width: auto; height: 2.55in; max-height: none; margin: 0 auto; object-fit: contain; }
+            .image-panel figcaption { padding: 0.04in 0.08in; font-size: 7.5pt; }
+            .region-block, .image-panel { color: #344452; }
+            footer { margin-top: 0.2in; padding-top: 0.07in; font-size: 7.5pt; }
         }
 
         @media (max-width: 768px) {
@@ -313,7 +337,7 @@
             </div>
         </div>
         <figure class="image-panel">
-            <img src="city-map.png" alt="Political map of Canada showing provinces, territories, and capital cities" loading="lazy">
+            <img class="city-map-image" src="city-map.png" alt="Political map of Canada showing provinces, territories, and capital cities" loading="lazy">
             <figcaption>Provinces, territories, and capital cities across Canada</figcaption>
         </figure>
     </section>
@@ -495,7 +519,7 @@
     </section>
 
     <footer>
-        <p>Canada Geography Study Sheet Handout • Generated from Slide Materials</p>
+        <p>Canada Geography Study Sheet Handout • By ThatFlegm • License: MIT</p>
     </footer>
 </div>
 
