@@ -194,6 +194,12 @@
             background: #fff;
         }
 
+        .image-panel .full-country-map {
+            max-height: none;
+            object-fit: contain;
+            background: #fff;
+        }
+
         .image-panel figcaption {
             padding: 0.65rem 0.9rem;
             color: var(--muted);
@@ -258,7 +264,7 @@
             .header-title h1 { font-size: 25pt; }
             .header-title p { margin-top: 0.06in; font-size: 9pt; }
             .download-badge { display: none; }
-            section { margin-bottom: 0.28in; }
+            section { margin-bottom: 0.28in; break-inside: avoid; page-break-inside: avoid; }
             h2 { margin: 0 0 0.12in; padding-bottom: 0.07in; font-size: 16pt; break-after: avoid; }
             .grid-two-col { gap: 0.03in 0.12in; }
             .info-card { margin-bottom: 0.03in; padding: 0.07in 0.1in; background: #f3f6f4 !important; color: #344452; border-left-width: 3px !important; break-inside: avoid; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
@@ -516,6 +522,14 @@
             <p><strong>Dominant Language:</strong> English, French, and Indigenous Languages</p>
             <p><strong>Regional Variation:</strong> Inuktitut, Cree, and Dene hold official co-status alongside English and French across Yukon, NWT, and Nunavut</p>
         </div>
+    </section>
+
+    <section>
+        <h2><span class="section-icon"></span>Full Map of Canada</h2>
+        <figure class="image-panel">
+            <img class="full-country-map" src="canada-full-map.jpg" alt="Full map of Canada showing provinces, territories, major cities, rivers, and surrounding waters">
+            <figcaption>Canada from the Pacific coast to the Atlantic and Arctic regions</figcaption>
+        </figure>
     </section>
 
     <footer>
