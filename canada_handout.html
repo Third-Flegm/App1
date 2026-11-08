@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canada: Geography, Regions & Culture — Study Handout</title>
+    <style>
+        :root {
+            --primary-color: #c51b29;
+            --secondary-color: #002147;
+            --text-dark: #2d3748;
+            --bg-light: #f7fafc;
+            --border-color: #e2e8f0;
+            --accent-blue: #3182ce;
+            --accent-green: #38a169;
+            --accent-orange: #dd6b20;
+            --accent-purple: #805ad5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        header {
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .header-title h1 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .header-title p {
+            font-size: 1.1rem;
+            color: #718096;
+            margin-top: 0.25rem;
+        }
+
+        .download-badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+        }
+
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-icon {
+            width: 8px;
+            height: 24px;
+            background-color: var(--primary-color);
+            display: inline-block;
+            border-radius: 2px;
+        }
+
+        .grid-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: var(--bg-light);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1rem 1.25rem;
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 1rem;
+        }
+
+        .info-card.cities { border-left-color: var(--accent-blue); }
+        .info-card.rivers { border-left-color: var(--accent-green); }
+        .info-card.seas { border-left-color: #2b6cb0; }
+        .info-card.nature { border-left-color: #2f855a; }
+        .info-card.languages { border-left-color: var(--accent-purple); }
+
+        .info-card h3 {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        .map-container {
+            background: #edf2f7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .map-mockup-graphic {
+            height: 120px;
+            background: linear-gradient(135deg, #e2e8f0 25%, #cbd5e0 25%, #cbd5e0 50%, #e2e8f0 50%, #e2e8f0 75%, #cbd5e0 75%, #cbd5e0 100%);
+            background-size: 40px 40px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #718096;
+            font-weight: 500;
+            border: 1px dashed #a0aec0;
+        }
+
+        .map-mockup-graphic::before {
+            content: "📍 Slide Map Reference Visual";
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            background: rgba(255,255,255,0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .regions-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .region-block {
+            border: 1px solid var(--border-color);
+            padding: 1.25rem;
+            border-radius: 6px;
+            background: var(--bg-light);
+        }
+
+        .region-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .meta-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: #718096;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        .sub-bullet {
+            margin-left: 1rem;
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        footer {
+            margin-top: 5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #a0aec0;
+        }
+
+        @media print {
+            body { background-color: #fff; padding: 0; }
+            .container { box-shadow: none; padding: 0; max-width: 100%; }
+            .download-badge { display: none; }
+            .info-card { background: #fff !important; border-left-width: 6px !important; page-break-inside: avoid; }
+            .region-block, .map-container { page-break-inside: avoid; }
+            h2 { margin-top: 2rem; page-break-after: avoid; }
+        }
+
+        @media (max-width: 768px) {
+            .grid-two-col, .regions-list { grid-template-columns: 1fr; }
+            header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header-title">
+            <h1>Canada: Geography & Regions</h1>
+            <p>Comprehensive Study Guide & Reference Handout</p>
+        </div>
+        <div class="download-badge" onclick="window.print()">Print / Save PDF</div>
+    </header>
+
+    <!-- SECTION 1: CITIES -->
+    <section>
+        <h2><span class="section-icon"></span>Major Cities</h2>
+        <div class="grid-two-col">
+            <div class="info-card cities">
+                <h3>Toronto, Ontario</h3>
+                <p>The largest city in Canada and its main financial, economic, and cultural center.</p>
+            </div>
+            <div class="info-card cities">
+                <h3>Ottawa, Ontario</h3>
+                <p>The national capital of Canada and the center of federal politics and government.</p>
+            </div>
+            <div class="info-card cities">
+                <h3>Montreal, Quebec</h3>
+                <p>The second-largest city and the cultural heart of French-speaking Canada.</p>
+            </div>
+            <div class="info-card cities">
+                <h3>Vancouver, British Columbia</h3>
+                <p>The third-largest metropolitan area and Canada's primary Pacific gateway and shipping port.</p>
+            </div>
+            <div class="info-card cities">
+                <h3>Calgary, Alberta</h3>
+                <p>The hub of Canada's energy and petroleum industry in the western prairies.</p>
+            </div>
+            <div class="info-card cities">
+                <h3>Edmonton, Alberta</h3>
+                <p>The provincial capital of Alberta and a major northern industrial and government center.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: REGIONS -->
+    <section>
+        <h2><span class="section-icon"></span>Geographical Regions</h2>
+        <div class="map-container">
+            <div class="map-mockup-graphic"></div>
+        </div>
+        <div class="regions-list">
+            <div class="region-block">
+                <div class="region-title">1. Central Canada (The Core)</div>
+                <div class="sub-bullet"><strong>Provinces:</strong> Ontario & Quebec</div>
+                <div class="sub-bullet"><strong>Landscape:</strong> St. Lawrence Lowlands & Canadian Shield</div>
+                <div class="sub-bullet"><strong>Role:</strong> The nation's economic and political engine; holds over 60% of Canada's population, manufacturing, and financial hubs (Toronto, Montreal, Ottawa).</div>
+            </div>
+            <div class="region-block">
+                <div class="region-title">2. The Prairie Provinces</div>
+                <div class="sub-bullet"><strong>Provinces:</strong> Alberta, Saskatchewan & Manitoba</div>
+                <div class="sub-bullet"><strong>Landscape:</strong> Flat interior plains transitioning into the Rocky Mountain foothills</div>
+                <div class="sub-bullet"><strong>Role:</strong> Canada's agricultural "breadbasket" and energy powerhouse; massive grain production, livestock farming, and oil/natural gas extraction.</div>
+            </div>
+            <div class="region-block">
+                <div class="region-title">3. The West Coast</div>
+                <div class="sub-bullet"><strong>Province:</strong> British Columbia</div>
+                <div class="sub-bullet"><strong>Landscape:</strong> Rugged Pacific Cordillera (Coast and Rocky Mountains), temperate rainforests, and ocean fjords</div>
+                <div class="sub-bullet"><strong>Role:</strong> Canada's primary Pacific trade gateway to Asia (Port of Vancouver); driven by forestry, maritime shipping, and tourism.</div>
+            </div>
+            <div class="region-block">
+                <div class="region-title">4. Atlantic Canada</div>
+                <div class="sub-bullet"><strong>Provinces:</strong> Nova Scotia, New Brunswick, Prince Edward Island, Newfoundland & Labrador</div>
+                <div class="sub-bullet"><strong>Landscape:</strong> Appalachian highlands, rocky coastlines, and maritime environments</div>
+                <div class="sub-bullet"><strong>Role:</strong> Historic heart of Canada's fisheries and shipping; modern economy includes offshore oil, ocean technology, and tourism.</div>
+            </div>
+            <div class="region-block">
+                <div class="region-title">5. The Canadian North</div>
+                <div class="sub-bullet"><strong>Territories:</strong> Yukon, Northwest Territories & Nunavut</div>
+                <div class="sub-bullet"><strong>Landscape:</strong> Vast Arctic tundra, continuous permafrost, and glacial archipelagos</div>
+                <div class="sub-bullet"><strong>Role:</strong> Spans 1/3 of Canada's landmass but holds &lt;1% of the population; crucial for mineral wealth (diamonds, gold) and Indigenous culture.</div>
+            </div>
+            <div class="region-block">
+                <div class="region-title">6. The Appalachian Region</div>
+                <div class="sub-bullet"><strong>Areas:</strong> SE Quebec (Gaspé Peninsula) and parts of the Atlantic provinces</div>
+                <div class="sub-bullet"><strong>Landscape:</strong> Ancient, deeply eroded mountain ranges and rolling hills</div>
+                <div class="sub-bullet"><strong>Role:</strong> A distinct geological sub-region historically vital for early mining, forestry, and shaping early settlement corridors.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: HYDROLOGY -->
+    <section>
+        <h2><span class="section-icon"></span>Hydrology: Rivers & Seas</h2>
+        <div class="grid-two-col">
+            <div class="info-card rivers">
+                <h3>Mackenzie River</h3>
+                <p>The longest river in Canada (4,241 km), flowing through the Northwest Territories to the Arctic Ocean.</p>
+            </div>
+            <div class="info-card rivers">
+                <h3>St. Lawrence River</h3>
+                <p>A vital commercial waterway connecting the Great Lakes to the Atlantic Ocean and shaping eastern Canada.</p>
+            </div>
+            <div class="info-card rivers">
+                <h3>Fraser River</h3>
+                <p>The longest river in British Columbia, essential for salmon fisheries, trade, and the economy of Vancouver.</p>
+            </div>
+            <div class="info-card rivers">
+                <h3>Yukon River</h3>
+                <p>A historic northern river stretching through Yukon and Alaska.</p>
+            </div>
+            <div class="info-card seas">
+                <h3>Pacific Ocean</h3>
+                <p>Borders western Canada (British Columbia), supporting major ports and marine ecosystems.</p>
+            </div>
+            <div class="info-card seas">
+                <h3>Atlantic Ocean</h3>
+                <p>Borders eastern Canada (Atlantic provinces), rich in maritime history and fisheries.</p>
+            </div>
+            <div class="info-card seas">
+                <h3>Arctic Ocean</h3>
+                <p>Borders northern Canada, characterized by polar ice and Arctic archipelagos.</p>
+            </div>
+            <div class="info-card seas">
+                <h3>Hudson Bay</h3>
+                <p>A massive inland saltwater sea in east-central Canada.</p>
+            </div>
+            <div class="info-card seas">
+                <h3>The Great Lakes</h3>
+                <p>A giant chain of freshwater lakes (Superior, Huron, Michigan, Erie, Ontario) shared with the United States.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: MOUNTAINS -->
+    <section>
+        <h2><span class="section-icon"></span>Mountain Ranges</h2>
+        <div class="grid-two-col">
+            <div class="info-card nature">
+                <h3>Mount Logan</h3>
+                <p>Located in the Yukon, it is the highest peak in Canada at 5,959 meters.</p>
+            </div>
+            <div class="info-card nature">
+                <h3>The Rocky Mountains (Canadian Rockies)</h3>
+                <p>A major rugged mountain range running through British Columbia and Alberta, famous for peaks like Mount Robson and national parks like Banff and Jasper.</p>
+            </div>
+            <div class="info-card nature">
+                <h3>The Coast Mountains</h3>
+                <p>A rugged coastal range along British Columbia running down to the Pacific.</p>
+            </div>
+            <div class="info-card nature">
+                <h3>The Laurentian Mountains (Laurentides)</h3>
+                <p>One of the oldest mountain ranges in the world, located in Quebec north of the St. Lawrence River.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: VEGETATION -->
+    <section>
+        <h2><span class="section-icon"></span>Vegetation and Nature Zones</h2>
+        <div class="info-card nature">
+            <h3>The Tundra (The Far North)</h3>
+            <p><strong>Environment:</strong> Harsh, treeless Arctic landscape dominated by permafrost.</p>
+            <p><strong>Vegetation:</strong> Low-growing shrubs, mosses, lichens, and wild berries.</p>
+        </div>
+        <div class="info-card nature">
+            <h3>The Boreal Forest / Taiga (The Subarctic)</h3>
+            <p><strong>Environment:</strong> Canada's largest ecosystem, forming a massive continuous green belt across the country.</p>
+            <p><strong>Vegetation:</strong> Dense coniferous trees like spruce, pine, and fir, adapted to long, cold winters.</p>
+        </div>
+        <div class="info-card nature">
+            <h3>The Pacific Temperate Rainforest (West Coast BC)</h3>
+            <p><strong>Environment:</strong> A unique, wet maritime eco-zone nestled between the ocean and coast mountains.</p>
+            <p><strong>Vegetation:</strong> Massive, ancient trees including Western Red Cedar, Douglas Fir, and thick mosses.</p>
+        </div>
+        <div class="info-card nature">
+            <h3>The Grasslands / Prairies (The Interior Plains)</h3>
+            <p><strong>Environment:</strong> Dry, flat inland expanses with hot summers and freezing winters.</p>
+            <p><strong>Vegetation:</strong> Short and tall wild grasses; now largely transformed into Canada's agricultural heartland.</p>
+        </div>
+        <div class="info-card nature">
+            <h3>Mixed & Deciduous Forests (Southeast & St. Lawrence)</h3>
+            <p><strong>Environment:</strong> Fertile lowlands with a humid, four-season climate.</p>
+            <p><strong>Vegetation:</strong> Maple, oak, and birch trees (famed for Canada's iconic autumn colors and maple syrup).</p>
+        </div>
+    </section>
+
+    <!-- SECTION 6: LANGUAGES -->
+    <section>
+        <h2><span class="section-icon"></span>Linguistic Demographics & Variations</h2>
+        <div class="info-card languages">
+            <h3>Quebec</h3>
+            <p><strong>Dominant Language:</strong> French (Official province-wide)</p>
+            <p><strong>Regional Variation:</strong> Quebec English (Subtle dialect influenced by French terms and syntax)</p>
+        </div>
+        <div class="info-card languages">
+            <h3>Central & Western Canada (Ontario, Prairies, British Columbia)</h3>
+            <p><strong>Dominant Language:</strong> English</p>
+            <p><strong>Regional Variation:</strong> Standard Inland Canadian English (Highly uniform, with a subtle vowel shift in rural Prairies)</p>
+        </div>
+        <div class="info-card languages">
+            <h3>Atlantic Canada (Maritimes & Newfoundland)</h3>
+            <p><strong>Dominant Language:</strong> English</p>
+            <p><strong>Regional Variation:</strong> Maritime English (Scottish/Irish roots) and Newfoundland English (Canada's most distinct, isolated dialect)</p>
+        </div>
+        <div class="info-card languages">
+            <h3>New Brunswick</h3>
+            <p><strong>Dominant Language:</strong> English & French (Canada's only officially bilingual province)</p>
+            <p><strong>Regional Variation:</strong> Chiac (A unique blend of Acadian French and English)</p>
+        </div>
+        <div class="info-card languages">
+            <h3>The Canadian North (The Territories)</h3>
+            <p><strong>Dominant Language:</strong> English, French, and Indigenous Languages</p>
+            <p><strong>Regional Variation:</strong> Inuktitut, Cree, and Dene hold official co-status alongside English and French across Yukon, NWT, and Nunavut</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Canada Geography Study Sheet Handout • Generated from Slide Materials</p>
+    </footer>
+</div>
+
+</body>
+</html>
