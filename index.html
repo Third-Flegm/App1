@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canada: Geography, Regions & Culture — Study Handout</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
         :root {
             color-scheme: dark;
             --red: #e85a64;
@@ -586,6 +588,342 @@
             .result-progress-track { width: 100%; }
             .quiz-actions > button { flex: 1 1 100%; }
         }
+
+        :root {
+            color-scheme: dark;
+            --red: #ff6078;
+            --ink: #f1f8f5;
+            --body: #c3d2ce;
+            --muted: #8da09a;
+            --paper: #111d20;
+            --canvas: #081012;
+            --line: #2b3c3e;
+            --blue: #58e3e1;
+            --green: #c4f36b;
+            --gold: #ffc96f;
+            --surface: #172629;
+            --surface-raised: #1c3032;
+            --accent-glow: rgba(88, 227, 225, 0.18);
+        }
+
+        :root[data-theme="light"] {
+            color-scheme: light;
+            --red: #d83f5c;
+            --ink: #14292d;
+            --body: #3b5557;
+            --muted: #668080;
+            --paper: #f5f8f3;
+            --canvas: #e7efeb;
+            --line: #c8d8d1;
+            --blue: #007f84;
+            --green: #4e7e22;
+            --gold: #9c5d00;
+            --surface: #ffffff;
+            --surface-raised: #edf4f0;
+            --accent-glow: rgba(0, 127, 132, 0.12);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            background-color: var(--canvas);
+            background-image: linear-gradient(rgba(88, 227, 225, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(88, 227, 225, 0.035) 1px, transparent 1px), radial-gradient(ellipse at 50% 0%, var(--accent-glow), transparent 44rem);
+            background-size: 44px 44px, 44px 44px, auto;
+            color: var(--body);
+            font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+            transition: background-color 220ms ease, color 220ms ease;
+        }
+
+        .container {
+            max-width: 1180px;
+            padding: 0 2.5rem 2.5rem;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            box-shadow: 0 28px 90px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(88, 227, 225, 0.04);
+            transition: background-color 220ms ease, border-color 220ms ease;
+        }
+
+        header {
+            min-height: 430px;
+            margin: 0 -2.5rem 3.25rem;
+            padding: 2.25rem 2.5rem;
+            border-radius: 11px 11px 0 0;
+            align-items: flex-end;
+            background: #10191b;
+        }
+
+        header::after {
+            background: linear-gradient(90deg, rgba(5, 15, 18, 0.92), rgba(5, 15, 18, 0.38) 65%, rgba(5, 15, 18, 0.24)), linear-gradient(0deg, rgba(5, 15, 18, 0.74), transparent 68%);
+        }
+
+        .header-title { max-width: 700px; }
+
+        .header-title::before {
+            content: "FIELD ATLAS  /  CANADA 01";
+            display: block;
+            margin-bottom: 1rem;
+            color: var(--blue);
+            font: 500 0.75rem/1.2 "DM Mono", monospace;
+            letter-spacing: 0.12em;
+        }
+
+        .header-title h1 {
+            max-width: 680px;
+            font: 700 3.8rem/0.98 "Space Grotesk", sans-serif;
+            letter-spacing: 0;
+            text-wrap: balance;
+        }
+
+        .header-title p {
+            margin-top: 1rem;
+            color: #d2e0dc;
+            font-size: 1.05rem;
+        }
+
+        .header-actions {
+            display: flex;
+            flex: 0 0 auto;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            min-height: 44px;
+            padding: 0.55rem 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.42);
+            border-radius: 4px;
+            background: rgba(8, 16, 18, 0.64);
+            color: #fff;
+            font: 500 0.72rem/1 "DM Mono", monospace;
+            text-transform: uppercase;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .theme-toggle-track {
+            display: block;
+            width: 2rem;
+            height: 1.1rem;
+            padding: 2px;
+            border: 1px solid rgba(88, 227, 225, 0.8);
+            border-radius: 999px;
+            background: rgba(88, 227, 225, 0.16);
+        }
+
+        .theme-toggle-track span {
+            display: block;
+            width: 0.78rem;
+            height: 0.78rem;
+            border-radius: 50%;
+            background: var(--blue);
+            box-shadow: 0 0 10px var(--blue);
+            transition: transform 180ms ease;
+        }
+
+        :root[data-theme="light"] .theme-toggle-track span { transform: translateX(0.82rem); }
+        .theme-toggle:hover, .download-badge:hover { border-color: var(--blue); box-shadow: 0 0 18px rgba(88, 227, 225, 0.2); }
+        .theme-toggle:focus-visible, .download-badge:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+        .download-badge {
+            min-height: 44px;
+            border: 1px solid var(--red);
+            border-radius: 4px;
+            background: var(--red);
+            color: #fff;
+            font: 600 0.82rem/1 "Space Grotesk", sans-serif;
+            transition: box-shadow 160ms ease, border-color 160ms ease;
+        }
+
+        section { margin-bottom: 3.7rem; }
+
+        h2 {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.85rem;
+            border-color: var(--line);
+            color: var(--ink);
+            font: 700 1.75rem/1.15 "Space Grotesk", sans-serif;
+            letter-spacing: 0;
+        }
+
+        .section-icon {
+            width: 6px;
+            height: 1.4em;
+            border-radius: 1px;
+            background: var(--blue);
+            box-shadow: 0 0 14px var(--blue);
+        }
+
+        .grid-two-col { gap: 0.8rem; }
+
+        .info-card {
+            margin-bottom: 0.8rem;
+            padding: 1.15rem 1.25rem;
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--blue);
+            border-radius: 4px;
+            background: var(--surface);
+            transition: transform 180ms ease, border-color 180ms ease, background-color 220ms ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--blue);
+            background: var(--surface-raised);
+        }
+
+        .info-card.rivers { border-left-color: var(--green); }
+        .info-card.seas { border-left-color: #64b7ff; }
+        .info-card.nature { border-left-color: var(--gold); }
+        .info-card.languages { border-left-color: var(--red); }
+        .info-card h3 { color: var(--ink); font-size: 1.04rem; }
+        .info-card p { color: var(--body); }
+
+        .map-container, .image-panel {
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background: var(--surface);
+        }
+
+        .map-container { padding: 0.8rem; }
+        .map-container img, .image-panel img { border-radius: 3px; }
+        .map-container p { padding: 0.75rem 0.2rem 0.1rem; color: var(--muted); font-size: 0.82rem; }
+        a { color: var(--blue); text-underline-offset: 3px; }
+        a:hover { color: var(--red); }
+        .image-panel figcaption { color: var(--muted); }
+
+        .regions-list { gap: 0.8rem; }
+
+        .region-block {
+            padding: 1.2rem;
+            border: 1px solid var(--line);
+            border-top: 2px solid var(--green);
+            border-radius: 4px;
+            background: var(--surface);
+            transition: border-color 180ms ease, background-color 220ms ease;
+        }
+
+        .region-block:hover { border-color: var(--green); background: var(--surface-raised); }
+        .region-title { color: var(--ink); }
+        .meta-label { color: var(--blue); font-family: "DM Mono", monospace; }
+        .sub-bullet { color: var(--body); }
+
+        .glossary-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.65rem;
+        }
+
+        .glossary-entry {
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--line);
+            border-left: 2px solid var(--blue);
+            background: var(--surface);
+            break-inside: avoid;
+        }
+
+        .glossary-entry dt {
+            margin-bottom: 0.3rem;
+            color: var(--blue);
+            font: 500 0.82rem/1.3 "DM Mono", monospace;
+        }
+
+        .glossary-entry dd { color: var(--body); font-size: 0.88rem; }
+
+        .quiz-launch {
+            border: 1px solid rgba(88, 227, 225, 0.38);
+            border-radius: 6px;
+            background: radial-gradient(ellipse at 90% 0%, var(--accent-glow), transparent 48%), var(--surface);
+            box-shadow: inset 0 0 34px rgba(88, 227, 225, 0.035);
+        }
+
+        .quiz-eyebrow, .question-number { color: var(--blue); }
+        .quiz-progress, .quiz-question, .quiz-button.secondary { background: var(--surface); }
+        .quiz-question { border-radius: 5px; }
+        .quiz-question:focus-within { border-color: var(--blue); box-shadow: 0 0 20px var(--accent-glow); }
+        .quiz-question input { border-color: var(--line); border-radius: 4px; background: var(--canvas); }
+        .quiz-progress-track, .result-progress-track { background: var(--canvas); }
+        .quiz-button, .quiz-submit { border-radius: 4px; background: var(--red); box-shadow: 0 0 22px rgba(255, 96, 120, 0.18); }
+        .quiz-button.secondary { border-color: var(--line); box-shadow: none; }
+        .quiz-results { border-radius: 6px; background: var(--surface); }
+        .score-ring-inner { background: var(--surface); }
+        .score-value, .result-title { color: var(--ink); }
+        .result-stat { border-radius: 4px; }
+
+        footer { border-color: var(--line); }
+
+        @media (max-width: 768px) {
+            body { padding: 1rem 0.65rem; }
+            .container { padding: 0 1.2rem 2rem; }
+            header { min-height: 430px; margin: 0 -1.2rem 2.5rem; padding: 1.5rem 1.2rem; }
+            .header-title h1 { font-size: 2.8rem; }
+            .header-actions { flex-wrap: wrap; }
+            .glossary-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
+        @media (max-width: 540px) {
+            .container { border-radius: 8px; }
+            header { min-height: 430px; border-radius: 7px 7px 0 0; }
+            .header-title h1 { font-size: 2.35rem; }
+            .header-actions { width: 100%; }
+            .download-badge, .theme-toggle { flex: 0 1 auto; }
+            .info-card { padding: 1rem; }
+            .glossary-list { grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition-duration: 0.01ms !important; }
+        }
+
+        @media print {
+            :root, :root[data-theme="light"] {
+                color-scheme: light;
+                --ink: #172b3a;
+                --body: #344452;
+                --muted: #64727c;
+                --paper: #fff;
+                --canvas: #fff;
+                --line: #d7dfdc;
+                --blue: #287c89;
+                --green: #527a4c;
+                --gold: #8a6428;
+            }
+            body { padding: 0; background: #fff; background-image: none; color: #344452; font-size: 9pt; line-height: 1.38; }
+            .container { width: 100%; max-width: none; padding: 0; border: 0; border-radius: 0; background: #fff; box-shadow: none; }
+            header { min-height: 1.2in; margin: 0 0 0.25in; padding: 0.2in 0.25in; align-items: flex-end; border-radius: 0; background: #172b3a; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            .header-title h1 { font-size: 25pt; }
+            .header-title p { margin-top: 0.06in; font-size: 9pt; }
+            .header-actions { display: none; }
+            section { margin-bottom: 0.28in; break-inside: avoid; page-break-inside: avoid; }
+            h2 { margin: 0 0 0.12in; padding-bottom: 0.07in; font-size: 16pt; break-after: avoid; }
+            .grid-two-col { gap: 0.03in 0.12in; }
+            .info-card { margin-bottom: 0.03in; padding: 0.07in 0.1in; background: #f3f6f4 !important; color: #344452; border-left-width: 3px !important; break-inside: avoid; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            .info-card h3 { margin-bottom: 0.01in; font-size: 9.5pt; color: #172b3a; }
+            .info-card p, .sub-bullet { font-size: 8pt; color: #344452; }
+            .region-block { padding: 0.09in; background: #f7f8f6 !important; color: #344452; break-inside: avoid; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            .regions-list { gap: 0.08in; }
+            .glossary-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.04in 0.08in; }
+            .glossary-entry { padding: 0.05in 0.07in; background: #f7f8f6; }
+            .glossary-entry dt { margin-bottom: 0.02in; font-size: 8pt; }
+            .glossary-entry dd { font-size: 7.5pt; line-height: 1.25; }
+            .region-title { margin-bottom: 0.03in; font-size: 9.5pt; color: #172b3a; }
+            .sub-bullet { margin-left: 0.08in; line-height: 1.3; }
+            .map-container, .image-panel { margin: 0.08in 0 0.12in; background: #fff !important; break-inside: avoid; box-shadow: none; }
+            .map-container { padding: 0.06in; }
+            .map-container img { width: auto; height: 3.05in; max-width: 100%; margin: 0 auto; object-fit: contain; }
+            .image-panel img { max-height: 2.05in; }
+            .image-panel .city-map-image { width: auto; height: 2.55in; max-height: none; margin: 0 auto; object-fit: contain; }
+            .image-panel figcaption { padding: 0.04in 0.08in; font-size: 7.5pt; }
+            .region-block, .image-panel { color: #344452; }
+            footer { margin-top: 0.2in; padding-top: 0.07in; font-size: 7.5pt; }
+            .quiz-launch, #quiz { display: none !important; }
+        }
     </style>
 </head>
 <body>
@@ -597,7 +935,13 @@
             <h1>Canada: Geography & Regions</h1>
             <p>Comprehensive Study Guide & Reference Handout</p>
         </div>
-        <button class="download-badge" type="button" onclick="window.print()">Print / Save PDF</button>
+        <div class="header-actions">
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+                <span class="theme-toggle-track" aria-hidden="true"><span></span></span>
+                <span id="theme-label">Dark mode</span>
+            </button>
+            <button class="download-badge" type="button" onclick="window.print()">Print / Save PDF</button>
+        </div>
     </header>
 
     <!-- SECTION 1: CITIES -->
@@ -812,6 +1156,84 @@
         </div>
     </section>
 
+    <section aria-labelledby="glossary-title">
+        <h2 id="glossary-title"><span class="section-icon"></span>Geography Glossary</h2>
+        <dl class="glossary-list">
+            <div class="glossary-entry">
+                <dt>Archipelago</dt>
+                <dd>A group or chain of islands.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Bilingual</dt>
+                <dd>Using or officially recognizing two languages.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Boreal forest</dt>
+                <dd>A vast northern forest belt, mostly made up of coniferous trees; also called the taiga.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Cordillera</dt>
+                <dd>A broad region of connected mountain ranges.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Dialect</dt>
+                <dd>A regional form of a language, with distinct pronunciation or vocabulary.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Ecosystem</dt>
+                <dd>Living things and the environment they interact with.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Fertile</dt>
+                <dd>Describes soil that can support healthy plant growth.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Fjord</dt>
+                <dd>A long, narrow sea inlet between steep sides, formed by a glacier.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Hydrology</dt>
+                <dd>The study of water, including where it is found and how it moves.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Indigenous</dt>
+                <dd>Originating in a place; in Canada, First Nations, Inuit, and Métis peoples.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Lowlands</dt>
+                <dd>Areas of land that are relatively low and often gently rolling or flat.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Maritime</dt>
+                <dd>Connected to the sea, coast, or seafaring.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Official co-status</dt>
+                <dd>Recognition as official alongside other languages in the same jurisdiction.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Permafrost</dt>
+                <dd>Ground that stays frozen for at least two consecutive years.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Prairie</dt>
+                <dd>A wide, mostly treeless grassland.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Taiga</dt>
+                <dd>The northern coniferous forest biome, also known as the boreal forest.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Temperate</dt>
+                <dd>Having a moderate climate without extreme heat or cold.</dd>
+            </div>
+            <div class="glossary-entry">
+                <dt>Tundra</dt>
+                <dd>A very cold, mostly treeless region with a short growing season.</dd>
+            </div>
+        </dl>
+    </section>
+
     <section>
         <h2><span class="section-icon"></span>Full Map of Canada</h2>
         <figure class="image-panel">
@@ -854,6 +1276,27 @@
 </div>
 
 <script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeLabel = document.getElementById("theme-label");
+    const savedTheme = localStorage.getItem("canada-geography-theme");
+
+    if (savedTheme === "light") document.documentElement.dataset.theme = "light";
+
+    function updateThemeControl() {
+        const isLight = document.documentElement.dataset.theme === "light";
+        themeToggle.setAttribute("aria-pressed", String(isLight));
+        themeToggle.setAttribute("aria-label", `Switch to ${isLight ? "dark" : "light"} mode`);
+        themeLabel.textContent = isLight ? "Light mode" : "Dark mode";
+    }
+
+    updateThemeControl();
+    themeToggle.addEventListener("click", () => {
+        const nextTheme = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+        document.documentElement.dataset.theme = nextTheme;
+        localStorage.setItem("canada-geography-theme", nextTheme);
+        updateThemeControl();
+    });
+
     const quizQuestionBank = [
         { prompt: "Canada's national capital is ____.", answers: ["Ottawa"] },
         { prompt: "Canada's largest city is ____.", answers: ["Toronto"] },
