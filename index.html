@@ -251,6 +251,285 @@
             color: var(--muted);
         }
 
+        .quiz-launch {
+            position: relative;
+            overflow: hidden;
+            margin-top: 2rem;
+            padding: clamp(1.5rem, 5vw, 2.75rem);
+            border: 1px solid rgba(104, 183, 209, 0.35);
+            border-radius: 10px;
+            background: radial-gradient(ellipse at 90% 0%, rgba(104, 183, 209, 0.18), transparent 45%), linear-gradient(135deg, #202d30, #172326);
+            text-align: center;
+        }
+
+        .quiz-launch::before {
+            content: "🍁";
+            position: absolute;
+            top: 0.5rem;
+            right: 1.5rem;
+            color: var(--gold);
+            font-size: 2.5rem;
+            opacity: 0.7;
+        }
+
+        .quiz-eyebrow {
+            margin-bottom: 0.35rem;
+            color: var(--blue);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .quiz-launch h2 {
+            justify-content: center;
+            margin-bottom: 0.6rem;
+            border: 0;
+            padding: 0;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        .quiz-launch p {
+            margin-bottom: 1rem;
+        }
+
+        .quiz-button,
+        .quiz-submit {
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, #e85a64, #c94453);
+            color: #fff;
+            padding: 0.75rem 1.2rem;
+            font: inherit;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+        }
+
+        .quiz-button:hover,
+        .quiz-submit:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28); }
+        .quiz-button:focus-visible,
+        .quiz-submit:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+        #quiz {
+            margin-top: 2rem;
+            scroll-margin-top: 1rem;
+        }
+
+        .quiz-intro {
+            margin: -0.5rem 0 1.25rem;
+            color: var(--muted);
+        }
+
+        .quiz-progress {
+            margin-bottom: 1.25rem;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--line);
+            border-radius: 7px;
+            background: #1b292c;
+        }
+
+        .quiz-progress-label {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.55rem;
+            color: var(--body);
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-track,
+        .result-progress-track {
+            height: 8px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: #0c1316;
+        }
+
+        .quiz-progress-fill,
+        .result-progress-fill {
+            display: block;
+            width: 0;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, var(--blue), var(--green));
+            transition: width 350ms ease;
+        }
+
+        .quiz-question {
+            position: relative;
+            margin-bottom: 1rem;
+            padding: 1.1rem 1.15rem;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: linear-gradient(145deg, #202d30, #1b292c);
+            transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+        }
+
+        .quiz-question:focus-within {
+            border-color: var(--blue);
+            transform: translateY(-1px);
+        }
+
+        .quiz-question.is-correct {
+            border-color: rgba(121, 185, 154, 0.7);
+        }
+
+        .quiz-question.is-incorrect {
+            border-color: rgba(232, 90, 100, 0.7);
+        }
+
+        .quiz-question label {
+            display: block;
+            margin-bottom: 0.55rem;
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .question-number {
+            display: inline-grid;
+            width: 1.65rem;
+            height: 1.65rem;
+            place-items: center;
+            margin-right: 0.45rem;
+            border-radius: 50%;
+            background: rgba(104, 183, 209, 0.15);
+            color: var(--blue);
+            font-size: 0.8rem;
+        }
+
+        .quiz-question input {
+            width: 100%;
+            padding: 0.7rem 0.8rem;
+            border: 1px solid var(--line);
+            border-radius: 5px;
+            background: rgba(12, 19, 22, 0.75);
+            color: var(--ink);
+            font: inherit;
+            transition: border-color 180ms ease, box-shadow 180ms ease;
+        }
+
+        .quiz-question input:focus-visible {
+            border-color: var(--blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(104, 183, 209, 0.16);
+        }
+
+        .quiz-question input[aria-invalid="true"] { border-color: var(--red); }
+        .quiz-question input:disabled { opacity: 0.9; cursor: default; }
+        .quiz-feedback { margin-top: 0.4rem; font-size: 0.9rem; }
+        .quiz-feedback.correct { color: var(--green); }
+        .quiz-feedback.incorrect { color: #ff9a9f; }
+
+        .quiz-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .quiz-button.secondary {
+            border-color: var(--line);
+            background: #202d30;
+            box-shadow: none;
+        }
+
+        .quiz-results {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: 1.25rem;
+            margin: 1.5rem 0 0;
+            padding: clamp(1.25rem, 4vw, 2rem);
+            border: 1px solid rgba(121, 185, 154, 0.35);
+            border-radius: 12px;
+            background: radial-gradient(ellipse at 100% 0%, rgba(121, 185, 154, 0.15), transparent 55%), linear-gradient(135deg, #202d30, #182326);
+            animation: result-arrive 420ms ease both;
+        }
+
+        .quiz-results[hidden] { display: none; }
+
+        .score-ring {
+            display: grid;
+            width: clamp(5.5rem, 20vw, 7rem);
+            aspect-ratio: 1;
+            place-items: center;
+            border-radius: 50%;
+            background: conic-gradient(var(--green) var(--score-angle, 0%), rgba(154, 169, 162, 0.2) 0);
+            box-shadow: 0 0 28px rgba(121, 185, 154, 0.13);
+        }
+
+        .score-ring-inner {
+            display: grid;
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            place-content: center;
+            border-radius: 50%;
+            background: #182326;
+            text-align: center;
+        }
+
+        .score-value {
+            color: var(--ink);
+            font: 700 1.35rem/1 Georgia, "Times New Roman", serif;
+        }
+
+        .score-caption {
+            margin-top: 0.3rem;
+            color: var(--muted);
+            font-size: 0.68rem;
+        }
+
+        .result-eyebrow {
+            margin-bottom: 0.3rem;
+            color: var(--green);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .result-title {
+            margin-bottom: 0.4rem;
+            color: var(--ink);
+            font: 700 clamp(1.35rem, 4vw, 1.8rem)/1.15 Georgia, "Times New Roman", serif;
+        }
+
+        .result-message { color: var(--body); }
+
+        .result-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.85rem;
+        }
+
+        .result-stat {
+            padding: 0.3rem 0.65rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--body);
+            font-size: 0.82rem;
+        }
+
+        .result-progress-track {
+            grid-column: 1 / -1;
+            height: 5px;
+            margin-top: 0.15rem;
+        }
+
+        @keyframes result-arrive {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .quiz-button, .quiz-submit, .quiz-question, .quiz-progress-fill, .result-progress-fill { transition: none; }
+            .quiz-results { animation: none; }
+        }
+
         @page {
             size: letter;
             margin: 0.55in 0.6in;
@@ -282,6 +561,7 @@
             .image-panel figcaption { padding: 0.04in 0.08in; font-size: 7.5pt; }
             .region-block, .image-panel { color: #344452; }
             footer { margin-top: 0.2in; padding-top: 0.07in; font-size: 7.5pt; }
+            .quiz-launch, #quiz { display: none !important; }
         }
 
         @media (max-width: 768px) {
@@ -298,6 +578,13 @@
             .container { padding-right: 0.9rem; padding-left: 0.9rem; }
             header { margin-right: -0.9rem; margin-left: -0.9rem; padding-right: 0.9rem; padding-left: 0.9rem; }
             .header-title h1 { font-size: 2rem; }
+        }
+
+        @media (max-width: 540px) {
+            .quiz-results { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+            .result-stats { justify-content: center; }
+            .result-progress-track { width: 100%; }
+            .quiz-actions > button { flex: 1 1 100%; }
         }
     </style>
 </head>
@@ -532,10 +819,315 @@
         </figure>
     </section>
 
+    <div class="quiz-launch">
+        <p class="quiz-eyebrow">Quick knowledge check</p>
+        <h2>How well do you know Canada?</h2>
+        <p>Take on eight random gap-fill questions and see how much you remember.</p>
+        <button class="quiz-button" id="start-quiz" type="button">Start the gap-fill quiz</button>
+    </div>
+    <section id="quiz" aria-labelledby="quiz-title" hidden>
+        <h2 id="quiz-title"><span class="section-icon"></span>Canada Gap-Fill Quiz</h2>
+        <p class="quiz-intro">Fill in each blank. Small spelling mistakes and alternate answers are accepted.</p>
+        <div class="quiz-progress" role="group" aria-label="Quiz progress">
+            <div class="quiz-progress-label">
+                <span>Your progress</span>
+                <span id="quiz-progress-text">0 of 8 answered</span>
+            </div>
+            <div class="quiz-progress-track" role="progressbar" aria-label="Questions answered" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0" id="quiz-progress">
+                <span class="quiz-progress-fill" id="quiz-progress-fill"></span>
+            </div>
+        </div>
+        <form id="quiz-form">
+            <div id="quiz-questions"></div>
+            <div class="quiz-results" id="quiz-results" aria-live="polite" tabindex="-1" hidden></div>
+            <div class="quiz-actions">
+                <button class="quiz-submit" id="check-answers" type="submit">See my results</button>
+                <button class="quiz-button secondary" id="new-quiz" type="button" hidden>Play another round</button>
+            </div>
+        </form>
+    </section>
+
     <footer>
         <p>Canada Geography Study Sheet Handout • By ThatFlegm • License: MIT</p>
     </footer>
 </div>
 
+<script>
+    const quizQuestionBank = [
+        { prompt: "Canada's national capital is ____.", answers: ["Ottawa"] },
+        { prompt: "Canada's largest city is ____.", answers: ["Toronto"] },
+        { prompt: "The city described as the cultural heart of French-speaking Canada is ____.", answers: ["Montreal", "Montréal"] },
+        { prompt: "Canada's longest river, flowing to the Arctic Ocean, is the ____ River.", answers: ["Mackenzie"] },
+        { prompt: "The St. Lawrence River connects the Great Lakes to the ____ Ocean.", answers: ["Atlantic"] },
+        { prompt: "The longest river in British Columbia is the ____ River.", answers: ["Fraser"] },
+        { prompt: "Canada's highest peak, Mount Logan, is in the ____.", answers: ["Yukon", "Yukon Territory"] },
+        { prompt: "The Rocky Mountains run through British Columbia and ____.", answers: ["Alberta"] },
+        { prompt: "Central Canada includes Ontario and ____.", answers: ["Quebec", "Québec"] },
+        { prompt: "The Prairie Provinces are Alberta, Saskatchewan, and ____.", answers: ["Manitoba"] },
+        { prompt: "The three territories of the Canadian North are Yukon, Northwest Territories, and ____.", answers: ["Nunavut"] },
+        { prompt: "The Port of Vancouver is Canada's primary Pacific trade gateway to ____.", answers: ["Asia"] },
+        { prompt: "Atlantic Canada's historic economy was strongly shaped by fisheries and ____.", answers: ["shipping"] },
+        { prompt: "The boreal forest's listed coniferous tree examples are ____, ____, and ____.", answers: ["spruce, pine, and fir"] },
+        { prompt: "The harsh, treeless Arctic environment is called the ____.", answers: ["tundra"] },
+        { prompt: "The Pacific temperate rainforest is on Canada's ____ Coast.", answers: ["West", "West Coast"] },
+        { prompt: "Maple, oak, and birch are characteristic of mixed and ____ forests.", answers: ["deciduous"] },
+        { prompt: "The dominant language in Quebec is ____.", answers: ["French"] },
+        { prompt: "New Brunswick is Canada's only officially ____ province.", answers: ["bilingual"] },
+        { prompt: "New Brunswick's dominant languages are ____.", answers: ["English and French", "French and English"] },
+        { prompt: "The Canadian North includes English, French, and ____ languages.", answers: ["Indigenous"] },
+        { prompt: "The Canadian Shield and St. Lawrence Lowlands are landscapes of ____ Canada.", answers: ["Central", "Central Canada"] },
+        { prompt: "The Prairie Provinces are known as Canada's agricultural ____.", answers: ["breadbasket"] },
+        { prompt: "The Coast Mountains are a rugged coastal range along ____ Columbia.", answers: ["British"] },
+        { prompt: "Inuktitut, Cree, and Dene have official co-status in parts of the Canadian ____.", answers: ["North", "Canadian North", "territories"] },
+        { prompt: "Toronto is Canada's main financial, economic, and cultural ____.", answers: ["center", "centre"] },
+        { prompt: "Montreal is Canada's ____-largest city.", answers: ["second"] },
+        { prompt: "Vancouver is Canada's primary Pacific gateway and shipping ____.", answers: ["port"] },
+        { prompt: "Calgary is a hub for Canada's energy and ____ industry.", answers: ["petroleum"] },
+        { prompt: "Edmonton is the provincial capital of ____.", answers: ["Alberta"] },
+        { prompt: "Central Canada holds over ____% of Canada's population.", answers: ["60", "sixty"] },
+        { prompt: "The Prairie landscape transitions into the Rocky Mountain ____.", answers: ["foothills"] },
+        { prompt: "British Columbia's rugged Pacific Cordillera includes the Coast and ____ Mountains.", answers: ["Rocky"] },
+        { prompt: "Atlantic Canada includes Nova Scotia, New Brunswick, Prince Edward Island, and ____.", answers: ["Newfoundland and Labrador", "Newfoundland & Labrador"] },
+        { prompt: "The Canadian North spans about ____ of Canada's landmass.", answers: ["one third", "a third", "1/3"] },
+        { prompt: "The Canadian North holds less than ____% of Canada's population.", answers: ["1", "one"] },
+        { prompt: "The Appalachian sub-region includes Quebec's ____ Peninsula.", answers: ["Gaspé", "Gaspe"] },
+        { prompt: "The Mackenzie River is about ____ kilometers long.", answers: ["4241", "4,241"] },
+        { prompt: "The historic northern ____ River stretches through Yukon and Alaska.", answers: ["Yukon"] },
+        { prompt: "The Fraser River is essential for salmon ____.", answers: ["fisheries"] },
+        { prompt: "Hudson Bay is a massive inland ____-water sea.", answers: ["salt"] },
+        { prompt: "The Great Lakes are a chain of ____ lakes shared with the United States.", answers: ["freshwater", "fresh water"] },
+        { prompt: "Mount Logan reaches ____ meters in height.", answers: ["5959", "5,959"] },
+        { prompt: "Mount Robson is a famous peak in the Canadian ____ Mountains.", answers: ["Rocky", "Rockies"] },
+        { prompt: "Banff and Jasper are famous Canadian national ____.", answers: ["parks"] },
+        { prompt: "The Laurentian Mountains are in Quebec, north of the ____ River.", answers: ["St. Lawrence", "Saint Lawrence"] },
+        { prompt: "The tundra's vegetation includes mosses, lichens, and wild ____.", answers: ["berries"] },
+        { prompt: "The boreal forest forms a massive continuous green ____ across Canada.", answers: ["belt"] },
+        { prompt: "Western Red Cedar and Douglas Fir grow in the Pacific temperate ____.", answers: ["rainforest", "rain forest"] },
+        { prompt: "Prairie vegetation includes short and tall wild ____.", answers: ["grasses"] },
+        { prompt: "The mixed and deciduous forest region has a humid, ____-season climate.", answers: ["four", "4"] },
+        { prompt: "Quebec's official province-wide language is ____.", answers: ["French"] },
+        { prompt: "Chiac blends Acadian French and ____.", answers: ["English"] },
+        { prompt: "Newfoundland English is Canada's most distinct, isolated ____.", answers: ["dialect"] },
+        { prompt: "Maritime English has Scottish and ____ roots.", answers: ["Irish"] },
+        { prompt: "Central and Western Canada are predominantly ____-speaking.", answers: ["English"] },
+        { prompt: "The Canadian North's Indigenous languages named in the handout include Inuktitut, Cree, and ____.", answers: ["Dene"] },
+        { prompt: "The Pacific Temperate Rainforest is nestled between the ocean and the ____ Mountains.", answers: ["Coast"] },
+        { prompt: "The Grasslands are also called the ____.", answers: ["Prairies", "Prairie"] },
+        { prompt: "The St. Lawrence River helped shape ____ Canada.", answers: ["eastern"] }
+    ];
+
+    const quizSection = document.getElementById("quiz");
+    const quizQuestions = document.getElementById("quiz-questions");
+    const quizForm = document.getElementById("quiz-form");
+    const quizResults = document.getElementById("quiz-results");
+    const newQuizButton = document.getElementById("new-quiz");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizProgressFill = document.getElementById("quiz-progress-fill");
+    const quizProgressText = document.getElementById("quiz-progress-text");
+    const checkAnswersButton = document.getElementById("check-answers");
+    let activeQuestions = [];
+    let quizGraded = false;
+
+    function normalizeAnswer(answer) {
+        return answer
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+            .replace(/&/g, " and ")
+            .replace(/[^a-z0-9]+/g, " ")
+            .trim()
+            .replace(/\s+/g, " ");
+    }
+
+    function similarity(left, right) {
+        const previous = Array.from({ length: right.length + 1 }, (_, index) => index);
+        for (let row = 1; row <= left.length; row += 1) {
+            let diagonal = previous[0];
+            previous[0] = row;
+            for (let column = 1; column <= right.length; column += 1) {
+                const above = previous[column];
+                previous[column] = Math.min(
+                    previous[column] + 1,
+                    previous[column - 1] + 1,
+                    diagonal + (left[row - 1] === right[column - 1] ? 0 : 1)
+                );
+                diagonal = above;
+            }
+        }
+        return 1 - previous[right.length] / Math.max(left.length, right.length, 1);
+    }
+
+    function answerMatches(input, answers) {
+        const normalizedInput = normalizeAnswer(input);
+        return answers.some((answer) => {
+            const normalizedAnswer = normalizeAnswer(answer);
+            const inputWords = normalizedInput.split(" ").sort().join(" ");
+            const answerWords = normalizedAnswer.split(" ").sort().join(" ");
+            return normalizedInput === normalizedAnswer
+                || inputWords === answerWords
+                || similarity(normalizedInput, normalizedAnswer) >= 0.84
+                || similarity(inputWords, answerWords) >= 0.84;
+        });
+    }
+
+    function renderQuiz() {
+        const shuffled = [...quizQuestionBank];
+        for (let index = shuffled.length - 1; index > 0; index -= 1) {
+            const randomIndex = Math.floor(Math.random() * (index + 1));
+            [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+        }
+        activeQuestions = shuffled.slice(0, 8);
+        quizQuestions.replaceChildren();
+        quizResults.replaceChildren();
+        quizResults.hidden = true;
+        newQuizButton.hidden = true;
+        checkAnswersButton.hidden = false;
+        quizGraded = false;
+        updateProgress();
+
+        activeQuestions.forEach((question, index) => {
+            const item = document.createElement("div");
+            item.className = "quiz-question";
+
+            const label = document.createElement("label");
+            label.htmlFor = `quiz-answer-${index}`;
+            const number = document.createElement("span");
+            number.className = "question-number";
+            number.textContent = String(index + 1);
+            label.append(number, document.createTextNode(question.prompt));
+
+            const input = document.createElement("input");
+            input.id = label.htmlFor;
+            input.name = `answer-${index}`;
+            input.autocomplete = "off";
+            input.addEventListener("input", updateProgress);
+
+            const feedback = document.createElement("p");
+            feedback.className = "quiz-feedback";
+            feedback.id = `quiz-feedback-${index}`;
+            feedback.setAttribute("aria-live", "polite");
+
+            input.setAttribute("aria-describedby", feedback.id);
+            item.append(label, input, feedback);
+            quizQuestions.append(item);
+        });
+    }
+
+    function updateProgress() {
+        const answered = activeQuestions.filter((_, index) =>
+            document.getElementById(`quiz-answer-${index}`)?.value.trim()
+        ).length;
+        const total = activeQuestions.length || 8;
+        const percentage = Math.round((answered / total) * 100);
+        quizProgressText.textContent = `${answered} of ${total} answered`;
+        quizProgress.setAttribute("aria-valuemax", String(total));
+        quizProgress.setAttribute("aria-valuenow", String(answered));
+        quizProgressFill.style.width = `${percentage}%`;
+    }
+
+    document.getElementById("start-quiz").addEventListener("click", () => {
+        renderQuiz();
+        quizSection.hidden = false;
+        quizSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        quizSection.querySelector("input").focus({ preventScroll: true });
+    });
+
+    quizForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (quizGraded) return;
+        let score = 0;
+
+        activeQuestions.forEach((question, index) => {
+            const input = document.getElementById(`quiz-answer-${index}`);
+            const feedback = document.getElementById(`quiz-feedback-${index}`);
+            const item = input.closest(".quiz-question");
+            const correct = answerMatches(input.value, question.answers);
+            input.setAttribute("aria-invalid", String(!correct));
+            item.classList.toggle("is-correct", correct);
+            item.classList.toggle("is-incorrect", !correct);
+            input.disabled = true;
+            feedback.className = `quiz-feedback ${correct ? "correct" : "incorrect"}`;
+            feedback.textContent = correct
+                ? "Correct!"
+                : `Not quite. Accepted answer${question.answers.length > 1 ? "s" : ""}: ${question.answers.join(" / ")}.`;
+            if (correct) score += 1;
+        });
+
+        const percentage = Math.round((score / activeQuestions.length) * 100);
+        const title = percentage === 100
+            ? "Outstanding!"
+            : percentage >= 75
+                ? "Great work!"
+                : percentage >= 50
+                    ? "Nice progress!"
+                    : "Keep exploring!";
+        const message = percentage === 100
+            ? "You know your Canadian geography inside and out."
+            : percentage >= 75
+                ? "You have a strong grasp of the handout. Keep it up!"
+                : percentage >= 50
+                    ? "You are getting there. Review the answers and give it another go."
+                    : "A quick review of the handout will help these facts stick.";
+        const ring = document.createElement("div");
+        ring.className = "score-ring";
+        ring.style.setProperty("--score-angle", `${percentage}%`);
+        ring.setAttribute("role", "img");
+        ring.setAttribute("aria-label", `${percentage} percent correct`);
+
+        const ringInner = document.createElement("div");
+        ringInner.className = "score-ring-inner";
+        const scoreValue = document.createElement("span");
+        scoreValue.className = "score-value";
+        scoreValue.textContent = `${score}/${activeQuestions.length}`;
+        const scoreCaption = document.createElement("span");
+        scoreCaption.className = "score-caption";
+        scoreCaption.textContent = "correct";
+        ringInner.append(scoreValue, scoreCaption);
+        ring.append(ringInner);
+
+        const copy = document.createElement("div");
+        const eyebrow = document.createElement("p");
+        eyebrow.className = "result-eyebrow";
+        eyebrow.textContent = "Round complete";
+        const heading = document.createElement("h3");
+        heading.className = "result-title";
+        heading.textContent = title;
+        const description = document.createElement("p");
+        description.className = "result-message";
+        description.textContent = message;
+        const stats = document.createElement("div");
+        stats.className = "result-stats";
+        const correctStat = document.createElement("span");
+        correctStat.className = "result-stat";
+        correctStat.textContent = `${score} correct`;
+        const missedStat = document.createElement("span");
+        missedStat.className = "result-stat";
+        missedStat.textContent = `${activeQuestions.length - score} to review`;
+        stats.append(correctStat, missedStat);
+        copy.append(eyebrow, heading, description, stats);
+
+        const resultProgress = document.createElement("div");
+        resultProgress.className = "result-progress-track";
+        resultProgress.setAttribute("aria-hidden", "true");
+        const resultFill = document.createElement("span");
+        resultFill.className = "result-progress-fill";
+        resultFill.style.width = `${percentage}%`;
+        resultProgress.append(resultFill);
+
+        quizResults.append(ring, copy, resultProgress);
+        quizResults.hidden = false;
+        quizResults.style.setProperty("--score-angle", `${percentage}%`);
+        quizProgressText.textContent = `${activeQuestions.length} of ${activeQuestions.length} answered`;
+        quizProgress.setAttribute("aria-valuenow", String(activeQuestions.length));
+        quizProgressFill.style.width = "100%";
+        quizGraded = true;
+        checkAnswersButton.hidden = true;
+        newQuizButton.hidden = false;
+        quizResults.focus({ preventScroll: true });
+        quizResults.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    newQuizButton.addEventListener("click", renderQuiz);
+</script>
 </body>
 </html>
